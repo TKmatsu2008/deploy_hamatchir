@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-au&p0@j!2k5#2(lz$m4vhae#4vw)0b!_)io5&*()$4ey(e+uas
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*',
+    '.vercel.app'
+]
 
 
 # Application definition
@@ -75,10 +78,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
@@ -128,4 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # staticフォルダのURLパスを設定
 STATIC_URL = '/static/'
 
+# staticフォルダの場所を設定
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+
+# # デプロイ用に静的ファイルを収集するディレクトリを指定（開発環境では不要）
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
+
